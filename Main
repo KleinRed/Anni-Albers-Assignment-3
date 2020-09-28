@@ -1,0 +1,132 @@
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+	ofSetWindowShape(500, 1100);
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+	float rectw = ofGetWidth() / 41;
+	float recth = ofGetHeight() / 11;
+	ofBackground(241, 235, 215);
+	for (int x = 0; x < 41; x++)
+	{
+		int xcoord = (int)ofMap(x, 0, 41, 0, ofGetWidth());
+		for (int y = 0; y < 11; y++)
+		{
+			int ycoord = (int)ofMap(y, 0, 11, 0, ofGetHeight());
+
+			if ( x % 2 == 0)
+			{
+				if ((y > 1 && y < 3) || (y > 7 && y < 10))
+				{
+					ofSetColor(60, 60, 60);
+					ofDrawRectangle(xcoord, ycoord, rectw, recth);
+				}
+				if (y > 2 && y < 5)
+				{
+					ofSetColor(204, 163, 99);
+					ofDrawRectangle(xcoord, ycoord, rectw, recth);
+				}
+				if (y > 4 && y < 8)
+				{
+					ofSetColor(177, 94, 80);
+					ofDrawRectangle(xcoord, ycoord, rectw, recth);
+				}
+
+			}
+		}
+
+		int CNum[41] = {};
+		for (int j = 0; j < 41; j++)
+		{
+			CNum[j] = (int)ofRandom(5, 15);
+			/*cout << CNum[j] << endl;*/
+			for (int i = 0; i < 10; i++)
+			{
+				//Get the y coordination:
+				float yremap = ofMap(ofRandom(1), 0, 1, 5, ofGetHeight() - 5);
+
+				
+
+				//shift the pattern:
+				float xshift = (float)xcoord + 0.5 * rectw;
+				if (x % 2 == 0)
+				{
+					yremap = yremap + (ofGetHeight() - 10) / 30 / 2;
+				}
+
+				/*ofSetColor();*/
+				ofDrawCircle(xshift, yremap, 10);
+
+
+
+
+				cout << i << endl;
+				cout << yremap << endl;
+			}
+		}
+	}
+
+}
+
+//--------------------------------------------------------------
+void ofApp::keyPressed(int key){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::keyReleased(int key){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseMoved(int x, int y ){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseDragged(int x, int y, int button){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mousePressed(int x, int y, int button){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseReleased(int x, int y, int button){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseEntered(int x, int y){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseExited(int x, int y){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::windowResized(int w, int h){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::gotMessage(ofMessage msg){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
+
+}
