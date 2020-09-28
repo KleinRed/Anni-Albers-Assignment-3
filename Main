@@ -3,6 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetWindowShape(500, 1100);
+   
 }
 
 //--------------------------------------------------------------
@@ -12,68 +13,102 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	float rectw = ofGetWidth() / 41;
-	float recth = ofGetHeight() / 11;
-	ofBackground(241, 235, 215);
-	for (int x = 0; x < 41; x++)
-	{
-		int xcoord = (int)ofMap(x, 0, 41, 0, ofGetWidth());
-		for (int y = 0; y < 11; y++)
-		{
-			int ycoord = (int)ofMap(y, 0, 11, 0, ofGetHeight());
+    float rectw = ofGetWidth() / 43;
+    float recth = ofGetHeight() / 11;
+    ofBackground(241, 235, 215);
+    for (int x = 0; x < 43; x++)
+    {
+        int j = (int)ofRandom(5, 15);
+        int xcoord = (int)ofMap(x, 0, 43, 0, ofGetWidth());
+        for (int y = 0; y < 11; y++)
+        {
+            int ycoord = (int)ofMap(y, 0, 11, 0, ofGetHeight());
 
-			if ( x % 2 == 0)
-			{
-				if ((y > 1 && y < 3) || (y > 7 && y < 10))
-				{
-					ofSetColor(60, 60, 60);
-					ofDrawRectangle(xcoord, ycoord, rectw, recth);
-				}
-				if (y > 2 && y < 5)
-				{
-					ofSetColor(204, 163, 99);
-					ofDrawRectangle(xcoord, ycoord, rectw, recth);
-				}
-				if (y > 4 && y < 8)
-				{
-					ofSetColor(177, 94, 80);
-					ofDrawRectangle(xcoord, ycoord, rectw, recth);
-				}
-
-			}
-		}
-
-		int CNum[41] = {};
-		for (int j = 0; j < 41; j++)
-		{
-			CNum[j] = (int)ofRandom(5, 15);
-			/*cout << CNum[j] << endl;*/
-			for (int i = 0; i < 10; i++)
-			{
-				//Get the y coordination:
-				float yremap = ofMap(ofRandom(1), 0, 1, 5, ofGetHeight() - 5);
-
-				
-
-				//shift the pattern:
-				float xshift = (float)xcoord + 0.5 * rectw;
-				if (x % 2 == 0)
-				{
-					yremap = yremap + (ofGetHeight() - 10) / 30 / 2;
-				}
-
-				/*ofSetColor();*/
-				ofDrawCircle(xshift, yremap, 10);
+            if (x % 2 == 0)
+            {
+                if ((y > 1 && y < 3) || (y > 7 && y < 10))
+                {
+                    ofSetColor(100);
+                    ofDrawRectangle(xcoord, ycoord, rectw, recth);
+                }
+                if (y > 2 && y < 5)
+                {
+                    ofSetColor(204, 163, 99);
+                    ofDrawRectangle(xcoord, ycoord, rectw, recth);
+                }
+                if (y > 4 && y < 8)
+                {
+                    ofSetColor(196, 85, 85);
+                    ofDrawRectangle(xcoord, ycoord, rectw, recth);
+                }
+               
+                ofSetColor(241, 235, 215);
+                ofDrawRectangle(xcoord + 0.5 * rectw - 0.5, ycoord, 1, recth);
+            }
+        }
 
 
 
+        for (int i = 0; i < j; i++)
+        {
+            //Get the y coordination:
+            float yremap = ofMap(ofRandom(1), 0, 1, 50, ofGetHeight() - 50);
 
-				cout << i << endl;
-				cout << yremap << endl;
-			}
-		}
-	}
 
+
+            //shift the pattern:
+            float xshift = (float)xcoord + 0.5 * rectw;
+            if (x % 2 == 0)
+            {
+                yremap = yremap + (ofGetHeight() - 100) / 30 / 2;
+            }
+            
+            //Set color:
+            if ( ((int)yremap + x) % 8 == 0)
+            {
+                ofSetColor(0);
+            }
+            if ( ((int)yremap + x) % 8 == 1)
+            {
+                ofSetColor(190, 94, 44);
+            }
+            if ( ((int)yremap + x) % 8 == 2)
+            {
+                ofSetColor(221, 199, 160);
+            }
+            if (((int)yremap + x) % 8 == 3)
+            {
+                ofSetColor(226, 139, 148);
+            }
+            if (((int)yremap + x) % 8 == 4)
+            {
+                ofSetColor(150);
+            }
+            if (((int)yremap + x) % 8 == 5)
+            {
+                ofSetColor(214, 181, 102);
+            }
+            if (((int)yremap + x) % 8 == 6)
+            {
+                ofSetColor(203, 179, 153);
+            }
+            if (((int)yremap + x) % 8 == 7)
+            {
+                ofSetColor(221, 199, 160);
+            }
+           
+            
+            ofDrawCircle(xshift, yremap, 10);
+
+
+
+            cout << x << endl;
+            cout << i << endl;
+            cout << yremap << endl;
+        }
+        
+    }
+    
 }
 
 //--------------------------------------------------------------
