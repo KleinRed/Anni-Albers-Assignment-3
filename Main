@@ -18,7 +18,7 @@ void ofApp::draw(){
     ofBackground(241, 235, 215);
     for (int x = 0; x < 43; x++)
     {
-        int j = (int)ofRandom(5, 15);
+        int j = (int)ofRandom(5, 25);
         int xcoord = (int)ofMap(x, 0, 43, 0, ofGetWidth());
         for (int y = 0; y < 11; y++)
         {
@@ -51,8 +51,8 @@ void ofApp::draw(){
 
         for (int i = 0; i < j; i++)
         {
-            //Get the y coordination:
-            float yremap = ofMap(ofRandom(1), 0, 1, 50, ofGetHeight() - 50);
+            int ymedium = (int)(ofRandom(1) * 30);
+            float yremap = ofMap(ymedium, 0, 30, 50, ofGetHeight() - 50);
 
 
 
@@ -64,35 +64,35 @@ void ofApp::draw(){
             }
             
             //Set color:
-            if ( ((int)yremap + x) % 8 == 0)
+            if ( ((int)yremap + x) % 10 < 3)
             {
                 ofSetColor(0);
             }
-            if ( ((int)yremap + x) % 8 == 1)
+            if ( ((int)yremap + x) % 10 == 3)
             {
                 ofSetColor(190, 94, 44);
             }
-            if ( ((int)yremap + x) % 8 == 2)
+            if ( ((int)yremap + x) % 10 == 4)
             {
                 ofSetColor(221, 199, 160);
             }
-            if (((int)yremap + x) % 8 == 3)
+            if (((int)yremap + x) % 10 == 5)
             {
                 ofSetColor(226, 139, 148);
             }
-            if (((int)yremap + x) % 8 == 4)
+            if (((int)yremap + x) % 10 == 6)
             {
                 ofSetColor(150);
             }
-            if (((int)yremap + x) % 8 == 5)
+            if (((int)yremap + x) % 10 == 7)
             {
                 ofSetColor(214, 181, 102);
             }
-            if (((int)yremap + x) % 8 == 6)
+            if (((int)yremap + x) % 10 == 8)
             {
                 ofSetColor(203, 179, 153);
             }
-            if (((int)yremap + x) % 8 == 7)
+            if (((int)yremap + x) % 10 == 9)
             {
                 ofSetColor(221, 199, 160);
             }
